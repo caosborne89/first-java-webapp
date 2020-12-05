@@ -1,8 +1,8 @@
 version: "3.3"
 services:
   webapp:
-    image: tomcat:7-jdk8
+    build: ./docker
     ports:
       - "8080:8080"
     volumes:
-      - ./app:/usr/local/src
+      - ./app:/usr/local/src/app

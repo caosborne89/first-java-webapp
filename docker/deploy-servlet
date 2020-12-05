@@ -1,0 +1,27 @@
+#!/bin/bash -
+#===============================================================================
+#
+#          FILE: deploy-servlet
+#
+#         USAGE: ./deploy-servlet
+#
+#   DESCRIPTION: Script to compile the ch1 web app and deploy it to tomcat
+#===============================================================================
+
+set -o nounset                                  # Treat unset variables as an error
+
+# Compile
+cd /usr/local/src/app
+
+javac -classpath $CATALINA_HOME/lib/servlet-api.jar -d $CATALINA_HOME/webapps/ch1/WEB-INF/classes /usr/local/src/app/src/Ch1Servlet.java
+
+# Deployment to tomcat
+cp classes/Ch1Servlet.class $CATALINA_HOME/webapps/ch1/WEB-INF/classes/
+
+cp etc/web.xml $CATALINA_HOME/webapps/ch1/WEB-INF/
+
+cd -
+
+# Start Tomcat
+$CATALINA_HOME/bin/startup.sh
+

@@ -6,7 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import java.io.*;
 import java.util.*;
 
-@WebServlet(urlPatterns={"/hello"})
+@WebServlet(urlPatterns={"/date"})
 public class Ch1Servlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");

@@ -1,7 +1,4 @@
-FROM tomcat:7-jdk8
-
-RUN mkdir -p /usr/local/tomcat/webapps/ch1/WEB-INF/classes && \
-    mkdir -p /usr/local/tomcat/webapps/ch1/WEB-INF/lib
+FROM tomcat:10-jdk11
 
 COPY deploy-servlet /usr/local/bin/deploy-servlet
 

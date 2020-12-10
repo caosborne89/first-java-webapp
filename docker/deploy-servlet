@@ -13,14 +13,11 @@ set -o nounset                                  # Treat unset variables as an er
 # Compile
 cd /usr/local/src/app
 
-javac -classpath $CATALINA_HOME/lib/servlet-api.jar:classes:. -d $CATALINA_HOME/webapps/ch1/WEB-INF/classes /usr/local/src/app/src/dev/andyosborne/Ch1Servlet.java
+javac -classpath $CATALINA_HOME/lib/servlet-api.jar -d dist/WEB-INF/classes src/dev/andyosborne/Ch1Servlet.java
 
-# Deployment to tomcat
-cp -r classes $CATALINA_HOME/webapps/ch1/WEB-INF/
+jar cvf Serv1.war -C static . -C dist .
 
-cp etc/web.xml $CATALINA_HOME/webapps/ch1/WEB-INF/
-
-cp web/* $CATALINA_HOME/webapps/ch1/
+cp Serv1.war $CATALINA_HOME/webapps
 
 cd -
 
